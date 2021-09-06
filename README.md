@@ -1,2 +1,1 @@
-# vue-training
-☘️ Vue.js Training through docs.
+# Vue.js Training
