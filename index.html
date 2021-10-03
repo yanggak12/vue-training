@@ -10,7 +10,11 @@
 <body>
     <div id="app">
         {{nextYear('안녕하세요! ')}}
+        <input :type="type" v-bind:value="inputData">
+        <a :href="link" target="_blank">윤상이 깃허브</a>
     </div>
+   
+        
     <script>
         new Vue({
             el:'#app',
@@ -18,15 +22,16 @@
                 person:{
                 name:'YOONSANG',
                 age:24,
-                }   
+                },
+                inputData:'hello',
+                type:'text',
+                link:'https://github.com/yanggak12/'
             },
             methods:{
                 nextYear:function(greeting){
                     return greeting+this.person.name+'는 내년에 '+(this.person.age+1)+'살 입니다.'
                 },
-                otherMethod:function(){
-                    this.nextYear();
-                }
+                
             }
         })
     </script>
