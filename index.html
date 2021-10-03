@@ -17,9 +17,17 @@
 </head>
 <body>
     <div id="app">
-        <div v-show="show">Yes</div><br>
-        
-      <button @click="toggleYes">Click</button>
+        {{people[0].name}} : {{people[0].age}}<br>
+        {{people[1].name}} : {{people[1].age}}<br>
+        {{people[2].name}} : {{people[2].age}}<br>
+        <hr>
+        <div v-for="person in people">
+            {{person.name}} : {{person.age}}<br>
+        </div>
+        <hr>
+        <div v-for="(person,index) in people" :key="person.id">
+            {{person.name}} : {{person.age}}, index:{{index}}<br>
+        </div>
     </div>
    
         
@@ -27,13 +35,14 @@
         new Vue({
             el:'#app',
             data:{
-                show:false
+                people:[
+                {id:123,name:'a',age:24},
+                {id:1234,name:'b',age:23},
+                {id:12345,name:'c',age:22},
+                ]
             },
             methods:{
-               toggleYes(){
-                   this.show=!this.show
-               }
-                 
+               
             },
 
         })
