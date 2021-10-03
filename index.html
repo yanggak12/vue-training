@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>뷰 기초 익히기</title>
-   
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
@@ -14,24 +13,23 @@
     </div>
     
     <script>
-        Vue.component('hello-world',{
-            template:`<div>hello world</div>`
-        })
-        Vue.component('yoonsang-button',{
+        const yoonsangButton = {
             template:` <div>{{name}}<br>
-                <hello-world/>
-            <button @click="changeText">Click</button></div>`,
-            data(){
-                return{name:'yoonsang'}
-            },
-            methods:{
-                changeText(){
-                    this.name='yoonsang updated';
+                <button @click="changeText">Click</button></div>`,
+                data(){
+                    return{name:'yoonsang'}
+                },
+                methods:{
+                    changeText(){
+                        this.name='yoonsang updated';
+                    }
                 }
-            }
-        })
+        }
         const app = new Vue({
             el:'#app',
+            components:{
+                'yoonsang-button':yoonsangButton
+            }
         })
     </script>
 </body>
