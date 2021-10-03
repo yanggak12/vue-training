@@ -9,9 +9,11 @@
 </head>
 <body>
     <div id="app">
-        {{nextYear('안녕하세요! ')}}
-        <input :type="type" v-bind:value="inputData">
-        <a :href="link" target="_blank">윤상이 깃허브</a>
+        {{year}}<br>
+        <button v-on:click="addYear">Add year</button>
+        <button v-on:click="minusYear">Minus year</button>
+        <button v-on:click="alertFunc">Click Me</button>
+
     </div>
    
         
@@ -19,19 +21,18 @@
         new Vue({
             el:'#app',
             data:{
-                person:{
-                name:'YOONSANG',
-                age:24,
-                },
-                inputData:'hello',
-                type:'text',
-                link:'https://github.com/yanggak12/'
+                year:2021
             },
             methods:{
-                nextYear:function(greeting){
-                    return greeting+this.person.name+'는 내년에 '+(this.person.age+1)+'살 입니다.'
+                 alertFunc(){
+                    alert('helloworld')
                 },
-                
+                addYear(){
+                    this.year++;
+                },
+                minusYear(){
+                    this.year--;
+                }
             }
         })
     </script>
