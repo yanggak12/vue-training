@@ -9,9 +9,10 @@
 </head>
 <body>
     <div id="app">
-        <!-- 이벤트 수식어. event.preventDefault 하고 싶으면 뒤에 .prevent -->
         <form v-on:submit.prevent="submit">
-            <input type="text"><br>
+            <!-- v-on: @로 대체가능 -->
+            <input type="text" :value="text" @keyup="updateText"><br>
+            {{text}}<br>
             <button type="submit">Submit</button>
         </form>
     </div>
@@ -21,7 +22,8 @@
         new Vue({
             el:'#app',
             data:{
-                year:2021
+                year:2021,
+                text:'text'
             },
             methods:{
                  alertFunc(){
@@ -36,7 +38,11 @@
                 submit(){
                     alert('hi')
                     console.log('hello')
+                },
+                updateText(event){
+                    this.text = event.target.value;
                 }
+                
             }
         })
     </script>
