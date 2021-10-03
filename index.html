@@ -9,11 +9,11 @@
 </head>
 <body>
     <div id="app">
-        {{year}}<br>
-        <button v-on:click="addYear">Add year</button>
-        <button v-on:click="minusYear">Minus year</button>
-        <button v-on:click="alertFunc">Click Me</button>
-
+        <!-- 이벤트 수식어. event.preventDefault 하고 싶으면 뒤에 .prevent -->
+        <form v-on:submit.prevent="submit">
+            <input type="text"><br>
+            <button type="submit">Submit</button>
+        </form>
     </div>
    
         
@@ -32,6 +32,10 @@
                 },
                 minusYear(){
                     this.year--;
+                },
+                submit(){
+                    alert('hi')
+                    console.log('hello')
                 }
             }
         })
