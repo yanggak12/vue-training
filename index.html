@@ -9,12 +9,9 @@
 </head>
 <body>
     <div id="app">
-        <form v-on:submit.prevent="submit">
-            <!-- <input type="text" :value="text" @keyup="updateText"><br> -->
-            <input type="text" v-model="text"><br>
-            {{text}}<br>
-            <button type="submit">Submit</button>
-        </form>
+        <button @click="changeMessage">Click</button>
+        {{message}}
+        {{reversedMessage}}
     </div>
    
         
@@ -22,28 +19,26 @@
         new Vue({
             el:'#app',
             data:{
-                year:2021,
-                text:'text'
+                message:'hello',
+                number:1,
             },
             methods:{
-                 alertFunc(){
-                    alert('helloworld')
+                changeMessage(){
+                    this.message = '안녕하세요'
                 },
-                addYear(){
-                    this.year++;
-                },
-                minusYear(){
-                    this.year--;
-                },
-                submit(){
-                    alert('hi')
-                    console.log('hello')
-                },
-                /*updateText(event){
-                    this.text = event.target.value;
-                }*/
-                
+                 
+            },
+            computed:{
+                reversedMessage(){
+                    return this.message.split('').reverse().join('')
+                }
+                // computed 속성은 캐싱을 한다
+                // 즉 Vue 인스턴스 생성시 이미 함수가 적용되어져서 세번을 변수처럼 부르기만한다.
+                // 메소드는 그때그때 함수로 이동해서 처리하는 차이점!
+                // 정리하면, computed는 getter만 있어서 set이 필요하면 set함수를 넣어주어야한다.
+                // computed는 기본적으로 매개변수가 없다.
             }
+
         })
     </script>
 </body>
