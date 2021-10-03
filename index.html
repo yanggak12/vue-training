@@ -5,13 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>뷰 기초 익히기</title>
+    <style>
+        .red {
+            color:red;
+        }
+        .font-bold {
+            font-weight: bold;
+        }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
     <div id="app">
-        {{message}}<br>
-        <button @click="changeMessage">Click</button><br>
-        {{updated}}
+        <div :class="{red:isRed,'font-bold':isBold}">Hello</div>
+        <button @click="update">Update</button>
     </div>
    
         
@@ -19,31 +26,16 @@
         new Vue({
             el:'#app',
             data:{
-                message:'hello',
-                updated:'아니요'
+                isRed:false,
+                isBold:false
             },
             methods:{
-                changeMessage(){
-                    this.message = '안녕하세요'
-                },
+                update(){
+                    this.isRed = true;
+                    this.isBold = true;
+                }
                  
             },
-            computed:{
-                reversedMessage(){
-                    return this.message.split('').reverse().join('')
-                }
-                // computed 속성은 캐싱을 한다
-                // 즉 Vue 인스턴스 생성시 이미 함수가 적용되어져서 세번을 변수처럼 부르기만한다.
-                // 메소드는 그때그때 함수로 이동해서 처리하는 차이점!
-                // 정리하면, computed는 getter만 있어서 set이 필요하면 set함수를 넣어주어야한다.
-                // computed는 기본적으로 매개변수가 없다.
-            },
-            watch:{
-                message(newVal,oldVal){
-                    console.log(newVal,oldVal)
-                    this.updated='네'
-                }
-            }
 
         })
     </script>
