@@ -17,8 +17,15 @@
 </head>
 <body>
     <div id="app">
-        <div :style="{color:red, fontSize:size}">Hello</div>
-        <button @click="update">Update</button>
+        <template v-if="number===1">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+        </template>
+        <div v-else-if="number===2">Hi</div>
+        <div v-else>No</div>
+        
+      <button @click="increaseNumber">Click</button>
     </div>
    
         
@@ -26,14 +33,12 @@
         new Vue({
             el:'#app',
             data:{
-                red:'red',
-                size:'30px'
+                number:1
             },
             methods:{
-                update(){
-                    this.red="blue";
-                    this.size='20px'
-                }
+               increaseNumber(){
+                   this.number++;
+               }
                  
             },
 
