@@ -17,7 +17,7 @@
 </head>
 <body>
     <div id="app">
-        <div :class="{red:isRed,'font-bold':isBold}">Hello</div>
+        <div :style="{color:red, fontSize:size}">Hello</div>
         <button @click="update">Update</button>
     </div>
    
@@ -26,13 +26,13 @@
         new Vue({
             el:'#app',
             data:{
-                isRed:false,
-                isBold:false
+                red:'red',
+                size:'30px'
             },
             methods:{
                 update(){
-                    this.isRed = true;
-                    this.isBold = true;
+                    this.red="blue";
+                    this.size='20px'
                 }
                  
             },
