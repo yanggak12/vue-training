@@ -1,10 +1,11 @@
 <template>
   <div>
-      <!-- html 소스를 추가하고 싶을때 슬롯을 쓴다. -->
-      <h1>{{title}}</h1>
+      <p>header</p>
+      <slot name="header" yoonsangVar="slotVar"></slot>
+      <p>body</p>
       <slot></slot>
-      <p>{{name}}</p>
-      <button @click="updateName">Update</button>
+      <p>footer</p>
+      <slot></slot>
   </div>
 </template>
 
@@ -20,6 +21,7 @@ export default {
     data(){
         return {
             name:'Yoonsang Yang',
+            slotVar:'Oh Good~!'
         }
     },
     methods:{

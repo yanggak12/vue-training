@@ -2,7 +2,13 @@
   <div class="about">
     <h1>This is an about page</h1>
     <Yoonsang>
-      <h2>Hello Slot~!</h2>
+      <template v-slot:header={yoonsangVar}>
+        <h2>Header Slot {{yoonsangVar}}</h2>
+      </template>
+      <template #default>
+        <!-- v-slot #으로 단축가능 -->
+        <h2>Default Slot</h2>
+      </template>
     </Yoonsang>
   </div>
 </template>
