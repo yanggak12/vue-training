@@ -1,16 +1,26 @@
 <template>
   <div>
     <h1>This is Home page</h1>
-   <Yoonsang title="Home Title"/>
+   <form action="">
+     <InputField :name="name" @update-name="name = $event.target.value"/>
+     <br><button>submit</button>
+   </form>
+   {{name}}
   </div>
 </template>
 
 <script>
-import Yoonsang from '../components/yoonsang.vue';
+import InputField from '../components/InputField.vue';
+
 export default{
+  data(){
+    return{
+      name:''
+    }
+  },
   components:{
-    Yoonsang
-  }
+    InputField
+  },
   }
 
 </script>
