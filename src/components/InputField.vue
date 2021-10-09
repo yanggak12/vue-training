@@ -3,9 +3,9 @@
     <label for="">Name</label>
     <input 
     type="text" 
-    :value="name"
+    :value="value"
     style="padding: 30px; border: 2px solid green;"
-    @input="$emit('update-name',$event)"
+    @input="$emit('input',$event.target.value)"
     >
 </div>
 </template>
@@ -13,7 +13,7 @@
 <script>
 export default {
     props:{
-        name:{
+        value:{
             type:String,
             require:true,
         }
