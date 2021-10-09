@@ -1,7 +1,9 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <Yoonsang />
+    <Yoonsang>
+      <h2>Hello Slot~!</h2>
+    </Yoonsang>
   </div>
 </template>
 

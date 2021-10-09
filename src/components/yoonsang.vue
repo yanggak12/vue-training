@@ -1,6 +1,8 @@
 <template>
   <div>
+      <!-- html 소스를 추가하고 싶을때 슬롯을 쓴다. -->
       <h1>{{title}}</h1>
+      <slot></slot>
       <p>{{name}}</p>
       <button @click="updateName">Update</button>
   </div>
